@@ -3,6 +3,50 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5">
+
+   		 <ListView
+        	android:id="@+id/song_list_view"
+      	    android:layout_width="match_parent"
+       	    android:layout_height="wrap_content">
+        
+    	</ListView>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:layout_weight="1">
+
+        <Button 
+            android:id="@+id/play_music"
+            android:background="@drawable/play"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="50dip"
+            android:layout_marginTop="10dp"
+            />
+        <Button 
+            android:id="@+id/pause_music"
+            android:background="@drawable/pause"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            />
+        <Button
+            android:id="@+id/stop_music"
+            android:background="@drawable/stop"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            />"
+    </LinearLayout>
 
 
 </LinearLayout>
