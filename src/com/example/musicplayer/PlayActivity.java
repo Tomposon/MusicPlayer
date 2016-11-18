@@ -29,6 +29,8 @@ public class PlayActivity extends Activity implements OnClickListener{
 	private Button play;
 	private Button pause;
 	private Button stop;
+	
+	private Song currentSong=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,25 +54,37 @@ public class PlayActivity extends Activity implements OnClickListener{
 			public void onItemClick(AdapterView<?> parent, View view, int position,
 					long id) {
 				// TODO Auto-generated method stub
-				
 				//停止当前播放歌曲，播放所点击的歌曲
-				if(mediaPlayer.isPlaying()){
-					mediaPlayer.reset();
+				
+				Song song=songList.get(position);
+				if(currentSong!=song){
+					if(mediaPlayer.isPlaying())
+						mediaPlayer.reset();
+					currentSong=song;
+					String title=song.getTitle();
+					if("俾面派对".equals(title)){
+						initMediaPlayer("m1.mp3");
+						
+					}
+					else if("富士山下".equals(title)){
+						initMediaPlayer("m2.mp3");
+						
+					}
+					else {
+						initMediaPlayer("m3.mp3");
+						
+					}
+					
+					mediaPlayer.start();
+				}
+				
+				if(!mediaPlayer.isPlaying()){
 					
 				}
 				
 				
-				Song song=songList.get(position);
-				String title=song.getTitle();
-				if("俾面派对".equals(title))
-					initMediaPlayer("m1.mp3");
-				else if("富士山下".equals(title))
-					initMediaPlayer("m2.mp3");
-				else initMediaPlayer("m3.mp3");
 				
-				if(!mediaPlayer.isPlaying()){
-					mediaPlayer.start();
-				}
+				
 				Intent intent=new Intent(PlayActivity.this,LyricActivity.class);
 				intent.putExtra("song_title", song.getTitle());
 				startActivity(intent);
